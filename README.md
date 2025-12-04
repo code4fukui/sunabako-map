@@ -1,6 +1,6 @@
 # sunabako-map
 
-https://code4fukui.gtihbu.io/sunabako-map/
+[砂箱マップ 札幌市](https://code4fukui.github.io/sunabako-map/)
 
 ## opendata
 
