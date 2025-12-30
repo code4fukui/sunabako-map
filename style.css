@@ -1,0 +1,242 @@
+:root {
+  --sunabako-teal: #77ccaa;
+  --sunabako-teal-dark: #64bfa3;
+  --sunabako-orange: #bb7849;
+  --sunabako-gray-dark: #3f3f3f;
+  --sunabako-gray: #62625f;
+  --sunabako-bg: #f6f8f7;
+  --sunabako-radius-lg: 16px;
+  --sunabako-radius-md: 10px;
+  --sunabako-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* アプリ全体 */
+.sunabako-app {
+  background: radial-gradient(circle at top left, #e5f7f0 0, var(--sunabako-bg) 40%, #ffffff 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--sunabako-gray-dark);
+  /*
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  */
+}
+
+button {
+  margin: .2em 0;
+  padding: .1em .5em;
+}
+
+/* ヘッダー */
+.sunabako-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--sunabako-teal);
+  color: #fff;
+  box-shadow: var(--sunabako-shadow);
+  z-index: 10;
+}
+
+.sunabako-header-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--sunabako-teal-dark), var(--sunabako-teal));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+h1.sunabako-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sunabako-header-subtitle {
+  x-font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* レイアウト（モバイル優先） */
+.sunabako-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* 地図エリア */
+.sunabako-map {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+  border-radius: var(--sunabako-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--sunabako-shadow);
+  background: #dfe5e3;
+  border: 3px solid var(--sunabako-teal-dark);
+}
+
+/* 地図左上のラベル（「砂箱マップ」など） */
+.sunabako-map-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  background: var(--sunabako-orange);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 操作パネル・ピン一覧 */
+.sunabako-panel {
+  background: #ffffff;
+  border-radius: var(--sunabako-radius-lg);
+  padding: 10px 12px;
+  box-shadow: var(--sunabako-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sunabako-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.sunabako-panel-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sunabako-gray-dark);
+}
+
+/* 検索ボックス */
+.sunabako-search {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(98, 98, 95, 0.4);
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  outline: none;
+  background: #fdfdfd;
+}
+
+.sunabako-search:focus {
+  border-color: var(--sunabako-teal-dark);
+  box-shadow: 0 0 0 2px rgba(119, 204, 170, 0.25);
+}
+
+/* ボタン */
+.sunabako-button {
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 砂箱テーマ・ボタンバリエーション */
+.sunabako-button--primary {
+  background: var(--sunabako-orange);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(187, 120, 73, 0.4);
+}
+
+.sunabako-button--secondary {
+  background: var(--sunabako-teal-dark);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(100, 191, 163, 0.5);
+}
+
+.sunabako-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+.sunabako-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ピン一覧のカード */
+.sunabako-pin-list {
+  margin-top: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sunabako-pin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: var(--sunabako-radius-md);
+  background: #f8fbfa;
+  border: 1px solid rgba(119, 204, 170, 0.35);
+  margin-bottom: 6px;
+}
+
+.sunabako-pin__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--sunabako-teal-dark), var(--sunabako-teal));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.sunabako-pin__name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sunabako-gray-dark);
+}
+
+.sunabako-pin__meta {
+  font-size: 0.7rem;
+  color: rgba(98, 98, 95, 0.85);
+}
+
+/* PC など横幅が広いときは左右2カラムに */
+/*
+@media (min-width: 768px) {
+  .sunabako-main {
+    flex-direction: row;
+    padding: 16px 20px;
+  }
+
+  .sunabako-map {
+    flex: 2;
+  }
+
+  .sunabako-panel {
+    flex: 1;
+    max-width: 360px;
+  }
+}
+*/
